@@ -25,7 +25,7 @@
 
 2. Склонуйте репозиторій:
    ```bash
-   git clone https://github.com/твій-нік/polybar-config ~/.config/polybar
+   git clone https://github.com/Hanashiko/dotfiles-polybar ~/.config/polybar
    ```
 
 3. Запусти бар:
