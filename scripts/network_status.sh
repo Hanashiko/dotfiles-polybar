@@ -5,7 +5,7 @@ check_ethernet() {
     [ -z "$eth_device" ] && return 1
     
     if ip link show "$eth_device" | grep -q "state UP"; then
-        echo "󰈀 Ethernet"
+        echo "%{F#ad8ee6}󰈀%{F-} Ethernet"
         return 0
     fi
     return 1
@@ -16,13 +16,13 @@ check_wifi() {
     [ -z "$wifi_device" ] && return 1
     
     local wifi_network=$(iwctl station "$wifi_device" show 2>/dev/null | grep "Connected network" | sed -E 's/.*Connected network[[:space:]]+//; s/[[:space:]]+$//')
-    [ -n "$wifi_network" ] && echo "  $wifi_network" && return 0
+    [ -n "$wifi_network" ] && echo "%{F#ad8ee6} %{F-} $wifi_network" && return 0
     
     return 1
 }
 
 main() {
-    check_ethernet || check_wifi || echo "󰖪 Offline"
+    check_ethernet || check_wifi || echo "%{F#ad8ee6}󰖪%{F-} Offline"
 }
 
 main
